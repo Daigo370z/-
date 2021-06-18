@@ -5,26 +5,12 @@
 #include "human.h"
 #include "computer.h"
 #include <sstream>
-
-void main_play();
-int main() {
-
-    SetColor(DARKGREEN);
-    std::cout << "~~~~~~~~Tic-Tac-Taoe~~~~~~~~" << std::endl;
-    std::cout << "By Default Player 1 is 'O' and Player 2 is 'X'\n";
-    std::cout << "The choice of cells is mapped out in the following legend\n\n\n";
-    std::cout << " 1  | 2  | 3  \n||\n 4  | 5  | 6  \n||\n 7  | 8  | 9  \n    |    |    \n\n";
-    std::cout << "**\n";
-    SetColor(WHITE);
-
-    main_play();
-    return 0;
-}
+using namespace std;
 
 void main_play() {
     int choice, replay;
-    std::cout << "What do You want to Do?\n 1.Play Human vs. Human(2 Player) \n 2.Computer vs. Human(1 Player)\n 3.Exit\n\n";
-    std::cin >> choice;
+    cout << "選擇模式\n 1.玩家1 vs. 玩家2 \n 2.Computer vs. Human(1 Player)\n 3.Exit\n\n";
+    cin >> choice;
     if (choice < 4) {
         switch (choice) {
         case 1:
@@ -43,28 +29,43 @@ void main_play() {
         case 3:
         {
             SetColor(GREEN);
-            std::cout << "Thank You for Playing :)\n\n";
+            cout << "謝謝遊玩 :)\n\n";
             SetColor(WHITE);
             return;
         }
         }
 
         SetColor(DARKTEAL);
-        std::cout << "Do You Want to Play Another Game?\n 1.Yes \n 2.No \n";
+        cout << "還想繼續玩嗎?\n 1.Yes \n 2.No \n";
         SetColor(WHITE);
-        std::cin >> replay;
+        cin >> replay;
         if (replay == 1) {
             main_play();
         }
         else {
             SetColor(GREEN);
-            std::cout << "Thank You for Playing :)\n\n";
+            cout << "謝謝遊玩 :)\n\n";
             SetColor(WHITE);
             return;
         }
     }
     SetColor(RED);
-    std::cout << "That is not a Valid Choice....\n Please Make a Valid Choice....\n\n";
+    cout << "請勿亂輸入\n 請選擇有效的格子\n\n";
     SetColor(WHITE);
     main_play();
 }
+int main() {
+
+    SetColor(DARKGREEN);
+    cout << "井字遊戲" << std::endl;
+    cout << "預設 Player 1 為 'O' & Player 2 為 'X'\n";
+    cout << "選擇的格子會在下列表格中列出\n\n\n";
+    cout << " 1  | 2  | 3  \n||\n 4  | 5  | 6  \n||\n 7  | 8  | 9  \n    |    |    \n\n";
+    cout << "**\n";
+    SetColor(WHITE);
+
+    main_play();
+    return 0;
+}
+
+
